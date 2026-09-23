@@ -4,20 +4,20 @@ while true
  do
 
 	#chiedo il nome file/directory
-	read -p "Inserisci il nome del fil/dir o fine per uscire" input
+	read -p "Inserisci il nome del fil/dir o fine per uscire  " input
 
 
 	#controllo
-	if[ "$input" = "fine"]
+	if [ "$input" = "fine" ]
 	then
 		echo "Fine programma"
 		break
 	fi
 
-	if [-f "$input"]
+	if [ -f "$input" ]
 	then
 		echo"-> '$input' è un file nel dir locale"
-	elif [-d "$input"]
+	elif [ -d "$input" ]
 	then
 		echo "-> '$input'è una dir nel dir locale"
 	else
