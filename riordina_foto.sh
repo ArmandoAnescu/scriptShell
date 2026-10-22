@@ -32,7 +32,7 @@ then
                 if [ -e "$DIR_DEST/$i" ]; then
                     echo "Duplicazione trovato: spostamento di '$i' in '$DIR_DUP'"
                     n=1
-                    nome="foto"
+                    nome="${i%.*}"
                     ext=".jpg"
                     while [ -e "$DIR_DUP/$nome-$n$ext" ]; do
                         n=$((n + 1))
