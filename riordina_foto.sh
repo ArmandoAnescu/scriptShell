@@ -8,8 +8,8 @@ fi
 DIR_SORG=$(cd "$1" && pwd)
 DIR_DEST=$(cd "$2" && pwd)
 
-DIR_DUP= "$DIR_DEST/duplicati"
-if [ ! -d "$DIR_DUP"];then
+DIR_DUP="$DIR_DEST/duplicati"
+if [ ! -d "$DIR_DUP" ];then
     mkdir -p "$DIR_DUP"
 fi
 
@@ -21,17 +21,18 @@ then
         if test -d "$i"
         then
             riordina_foto.sh "$DIR_SORG/$i" "$DIR_DEST" #chiamata ric
-        elif [-f "$i"] && [-r "$i"]; then
+        elif [ -f "$i" ] && [ -r "$i" ]; then
 
-            if [[ "$i" == "*.$ext"]]
-            then
+            case "$i" in
+            *"$ext")
                 if [ -e "$DIR_DEST/$file" ]; then
                     echo "Duplicazione trovato: spostamento di '$file' in '$DIR_DUP'"
                     mv "$file" "$DIR_DUP/"
                 else
                     mv "$i" "$DIR_DEST/"
                 fi
-            fi
+                ;;
+            esac
         fi
     done
 else        
