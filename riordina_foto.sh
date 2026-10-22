@@ -13,17 +13,16 @@ if [ ! -d "$DIR_DUP"];then
     mkdir -p "$DIR_DUP"
 fi
 
-ext = ".jpg"
+ext=".jpg"
 if test -d $DIR_SORG -a -d $DIR_DEST
 then
     cd "$DIR_SORG"
     for i in *; do
-    do 
         if test -d "$i"
         then
             riordina_foto.sh "$DIR_SORG/$i" "$DIR_DEST" #chiamata ric
         elif [-f "$i"] && [-r "$i"]; then
-        
+
             if [[ "$i" == "*.$ext"]]
             then
                 if [ -e "$DIR_DEST/$file" ]; then
@@ -34,6 +33,7 @@ then
                 fi
             fi
         fi
-else
-echo "Non hai inserito abbastanza argomenti/argomenti invalidi"
+    done
+else        
+    echo "Non hai inserito abbastanza argomenti/argomenti invalidi"
 fi
