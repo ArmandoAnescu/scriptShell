@@ -18,7 +18,7 @@ ext=".jpg"
 
 if test -d $DIR_SORG -a -d $DIR_DEST
 then
-    cd "$DIR_SORG"
+    cd "$DIR_SORG" || exit 1
     pwd
     for i in *; do
         if test -d "$i"
