@@ -9,6 +9,8 @@ fi
 DIR_SORG=$(cd "$1" && pwd)
 DIR_DEST=$(cd "$2" && pwd)
 
+copiati=0
+
 DIR_DUP="$DIR_DEST/duplicati"
 if [ ! -d "$DIR_DUP" ];then
     mkdir -p "$DIR_DUP"
@@ -29,14 +31,22 @@ then
             *"$ext")
                 if [ -e "$DIR_DEST/$i" ]; then
                     echo "Duplicazione trovato: spostamento di '$i' in '$DIR_DUP'"
-                    mv "$i" "$DIR_DUP/"
+                    n=1
+                    nome="foto"
+                    ext=".jpg"
+                    while [ -e "$DIR_DUP/$nome-$n$ext" ]; do
+                        n=$((n + 1))
+                    done
+                    mv "$i" "$DIR_DUP/$nome-$n$ext"
                 else
                     mv "$i" "$DIR_DEST/"
+                    copiati=$((copiati + 1))
                 fi
                 ;;
             esac
         fi
     done
+    echo "Sono stati copiati: $copiati foto "
 else        
     echo "Non hai inserito abbastanza argomenti/argomenti invalidi"
 fi
