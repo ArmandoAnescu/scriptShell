@@ -8,6 +8,8 @@ fi
 #check se è una directory e assoluta
 DIR=$1
 DIRHOME=$(pwd)
+counter=0
+
 if [ ! -d "$DIR" ]; then
 echo "L'argomento passato non è una directory"
 exit 1
@@ -27,15 +29,14 @@ fi
 [ -f "$HOME/error.txt" ] || touch "$HOME/error.txt"
 
 errlog="$HOME/error.txt"
-# shellcheck disable=SC2317
 warnlog="$HOME/warning.txt"
 
 cd "$DIR" || exit 0
 
 for file in *; do
     if [ -d "$file" ];then
-    (
-        cd $DIRHOME || exit 0
+    ( #creo una sub shell per cambiare dir  
+        cd "$DIRHOME" || exit 0
         ./trova_errori.sh "$DIR/$file"
     )
     elif [ -f "$file" ] && [ -r "$file" ]; then
@@ -43,9 +44,14 @@ for file in *; do
         *".log")
         #main.c,Progetto1,2026-10-26 09:00,error,15,Variabile non dichiarata,altre informazioni
         #suppenendo che i file di log siano scritti così
-        grep ',error,' "$file" | cut -d ',' -f 1,2,6 >> $errlog
-        grep ',warning,' "$file" | cut -d ',' -f 1,2,6 >> $warnlog
+        if grep ',error,' "$file" | cut -d ',' -f 1,2,6 >> "$errlog"; then
+            counter=$((counter+1))
+        fi
+        grep ',warning,' "$file" | cut -d ',' -f 1,2,6 >> "$warnlog"
         ;;
      esac
     fi
 done
+
+echo "errori:$counter in $(pwd)"
+
