@@ -14,9 +14,9 @@ if [ ! -d "$DIR" ]; then
 echo "L'argomento '$DIR' non è una directory"
 fi
 
-case "$dir" in
+case "$DIR" in
     /*) ;;
-    *)  echo "errore: <dir> non è un path assoluto"
+    *)  echo "errore: '$DIR' non è un path assoluto"
         exit 2
         ;;
 esac
@@ -46,3 +46,10 @@ MAX_SEDE=/tmp/max_sede.txt
 export MAX_SEDE
 
 gelateria_ric.sh "$DIR" "$id_cliente"
+
+# stampo il risultato
+echo "sede con più registrazioni per il cliente: `cat $MAX_SEDE | cut -d . -f 1` (`cat $MAX_COUNT`)"
+
+# rimuovo i file temporanei
+rm $MAX_COUNT
+rm $MAX_SEDE
