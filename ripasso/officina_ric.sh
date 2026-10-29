@@ -6,12 +6,12 @@ anno=$1
 shift
 
 cd "$anno" || exit 0
-
+ls
 #ciclo
 for f in *.txt; do
-
+    echo "$f"
     if [ -f "$f" -a -r "$f" ]; then
-        mese=$(echo "$f" | cur -f1 -d ".")
+        mese=$(echo "$f" | cut -f1 -d ".")
         num_int=$(grep "$categoria" "$f" | cut -f1 -d ' ')
         if [ ! -z "$num_int" ]; then
             echo "$mese $num_int" >> "$RIEPILOGO"
@@ -32,6 +32,6 @@ done
 
 for i in *; do
     if [ -d "$i" -a -x "$i" ]; then
-        officina_ric "$categoria" "$anno"
+        officina_ric.sh "$categoria" "$(pwd)/$i"
     fi
 done

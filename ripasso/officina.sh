@@ -51,7 +51,7 @@ MAX_CAT=/tmp/max_cat.txt
 > "$MAX_CAT"
 export MAX_CAT
 #chiamata file ricorsivo
-offcina_ric.sh "$categoria" "$anno"
+officina_ric.sh "$categoria" "$anno"
 
 rm "$MAX_CAT"
 rm "$MAX_COUNT"
