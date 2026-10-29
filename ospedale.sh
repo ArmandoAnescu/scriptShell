@@ -38,6 +38,9 @@ if [ ! -d "$anno" -a ! -x "$anno" ]; then
     exit 6
 fi
 
+PATH=$(pwd):$PATH
+export PATH
+
 RIEPILOGO="$HOME/ricoveri.txt"
 if [ ! -f "$RIEPILOGO" ]; then
     > "$RIEPILOGO"
