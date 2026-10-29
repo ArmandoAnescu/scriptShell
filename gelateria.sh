@@ -32,7 +32,7 @@ export PATH
 
 # creo il file di output (sovrascritto se esiste)
 RIEPILOGO=$HOME/"$id_cliente".log
-> $RIEPILOGO
+> "$RIEPILOGO"
 export RIEPILOGO
 
 # file temporaneo per il massimo numero di registrazioni del cliente
@@ -42,13 +42,13 @@ export MAX_COUNT
 
 # file temporaneo per la sede corrispondente
 MAX_SEDE=/tmp/max_sede.txt
-> $MAX_SEDE
+> "$MAX_SEDE"
 export MAX_SEDE
 
 gelateria_ric.sh "$DIR" "$id_cliente"
 
 # stampo il risultato
-echo "sede con più registrazioni per il cliente: `cat $MAX_SEDE | cut -d . -f 1` (`cat $MAX_COUNT`)"
+echo "sede con più registrazioni per il cliente: $(cat "$MAX_SEDE" | cut -d . -f 1) ($(cat $MAX_COUNT))"
 
 # rimuovo i file temporanei
 rm $MAX_COUNT
