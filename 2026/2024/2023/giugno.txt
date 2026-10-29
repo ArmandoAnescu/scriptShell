@@ -1,0 +1,5 @@
+REC001 2026-06-03 Cardiologia 4 Marco
+REC002 2026-06-12 Neurologia 12 Sofia
+REC003 2026-06-18 Pediatria 8 Alessandro
+REC004 2026-06-22 Ortopedia 15 Francesca
+REC005 2026-06-29 Oncolologia 2 Lorenzo

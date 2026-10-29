@@ -1,0 +1,6 @@
+REC012 2026-08-04 Pediatria 5 Tommaso
+REC013 2026-08-08 Cardiologia 8 Aurora
+REC014 2026-08-14 Urologia 11 Riccardo
+REC015 2026-08-19 Ginecologia 17 Beatrice
+REC016 2026-08-25 Oncologia 1 eddie
+REC017 2026-08-31 Neurologia 10 Alice

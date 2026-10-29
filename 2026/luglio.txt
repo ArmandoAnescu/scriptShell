@@ -1,0 +1,7 @@
+REC001 2026-08-09 Cardiologia 6 Angelo
+REC006 2026-07-02 Cardiologia 6 Angela
+REC007 2026-07-11 Dermatologia 3 Giulia
+REC008 2026-07-15 Gastroenterologia 9 Davide
+REC009 2026-07-20 Neurologia 14 Elena
+REC010 2026-07-26 Pneumologia 7 Mattia
+REC011 2026-07-30 Ortopedia 22 Chiara
