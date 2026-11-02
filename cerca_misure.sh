@@ -36,6 +36,7 @@ export RIEPILOGO
 
 MAX_COUNT=/tmp/max_count.txt
 echo '0'> "$MAX_COUNT"
+export MAX_COUNT
 
 MAX_SUB=/tmp/max_sub.txt
 >"$MAX_SUB"
@@ -44,3 +45,6 @@ export MAX_SUB
 cerca_misure_ric.sh "$dir" "$header"
 
 echo "Il numero più alto di ricoveri è stato: $(cat "$MAX_COUNT") nella subdirectory $(cat "$MAX_SUB")"
+
+rm $MAX_COUNT
+rm $MAX_SUB

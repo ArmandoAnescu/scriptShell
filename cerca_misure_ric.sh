@@ -19,7 +19,7 @@ for f in *.log ; do
 done
 
 max_count="$(cat "$MAX_COUNT")"
-if [ "$counter" -g "$max_count" ];then
+if [ "$counter" -gt "$max_count" ];then
     echo "$counter" > "$MAX_COUNT"
     echo "$(pwd)" > "$MAX_SUB"
 fi
