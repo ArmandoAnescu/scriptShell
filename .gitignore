@@ -1,0 +1,51 @@
+Log files
+
+*.log logs/ log/
+
+Temporary files
+
+*.tmp *.temp *.bak *.swp *.old *.cache
+
+OS generated files
+
+.DS_Store Thumbs.db desktop.ini
+
+IDEs and editors
+
+.idea/ .vscode/ *.sublime-workspace *.sublime-project
+
+Environment variables and secrets
+
+.env .env.* !.env.example *.pem *.key
+
+Dependencies
+
+node_modules/ vendor/
+
+Build and distribution
+
+dist/ build/ out/ target/
+
+Python
+
+pycache/ *.py[cod] *.pyo .venv/ venv/ .pytest_cache/ .mypy_cache/
+
+Coverage
+
+coverage/ htmlcov/ .coverage
+
+Runtime files
+
+*.pid *.seed *.pid.lock
+
+Database
+
+*.sqlite *.sqlite3 *.db
+
+Archives
+
+*.zip *.tar *.gz *.rar
+
+Miscellaneous
+
+.npm/ .parcel-cache/ .next/ .nuxt/ .cache/ .DS_Store EOF
